@@ -14,7 +14,8 @@ package ca.sheridancollege.project;
 public abstract class Card 
 {
     //default modifier for child classes
-    
+    public enum Suit {HEARTS,DIAMONDS,SPADES,CLUBS};
+    public enum Value {TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,JACK,QUEEN,KING,ACE};
     /**
      * Students should implement this method for their specific children classes 
      * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
