@@ -5,6 +5,11 @@
  */
 package ca.sheridancollege.project;
 
+import static ca.sheridancollege.project.Deck.Suit.HEARTS;
+import static ca.sheridancollege.project.Deck.Suit.SPADES;
+import static ca.sheridancollege.project.Deck.Value.JACK;
+import static ca.sheridancollege.project.Deck.Value.KING;
+import static ca.sheridancollege.project.Deck.Value.QUEEN;
 import java.util.Scanner;
 
 /**

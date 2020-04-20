@@ -53,7 +53,7 @@ public enum Suit {HEARTS,DIAMONDS,SPADES,CLUBS};
         }
         @Override
     public String toString() {
-        card=" "+getValue()+" "+getSuit();
+        card=getSuit()+" "+getValue();
         return card;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

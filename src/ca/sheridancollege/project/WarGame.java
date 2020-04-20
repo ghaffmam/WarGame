@@ -2,7 +2,7 @@ package ca.sheridancollege.project;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
+import java.util.LinkedList; 
 /**
  * @author Laptop
  */
@@ -41,6 +41,20 @@ public class WarGame extends Game {
             return rounds;
         }
         
+        public int compareCards(Deck one, Deck two)
+        {
+            if(one.getCardValue()>two.getCardValue())
+            {
+                return 1;
+            }
+            else if(one.getCardValue()<two.getCardValue())
+            {
+                return -1;
+            }
+            else
+                return 0; 
+        }
+        
 	@Override
 	public void play() {
   		// TODO - implement WarGame.play
@@ -52,14 +66,14 @@ public class WarGame extends Game {
             System.out.println(pname1+ " plays card is " + p1Card.toString());
             System.out.println(pname2+ " plays card is " + p2Card.toString());
             
-            //rank comparation between two cards
-            if(p1Card.getCardValue() > p2Card.getCardValue()){//if player 1 win 
+            //rank comparison between two cards
+            if(compareCards(p1Card,p2Card)==1){//if player 1 win 
                 deck1.addLast(p1Card);  //higher rank wins both cards and 
                 deck1.addLast(p2Card);  //places them at the bottom of his deck.
                 System.out.println(pname1+" wins the round");
             }//end if
  
-            else if(p1Card.getCardValue() < p2Card.getCardValue()){//if player 2 win 
+            else if(compareCards(p1Card,p2Card)==-1){//if player 2 win 
                 deck2.addLast(p1Card);   
                 deck2.addLast(p2Card);  
                 System.out.println(pname2+" wins the round");
@@ -88,17 +102,21 @@ public class WarGame extends Game {
                 //only compare result when both players have enough cards for war
                 if(war1.size() == 3 && war2.size() == 3 ){
                     //display the war cards from each player
-                    System.out.println("War card for"+pname1+" is " + war1.get(0).toString());
-                    System.out.println("War card for"+pname2+ "is " + war2.get(0).toString());
+                    System.out.println("War card for"+pname1+" is " + war1.get(2).toString());
+                    System.out.println("War card for"+pname2+ " is " + war2.get(2).toString());
                     
                     //if player 1 wins the war round
-                    if(war1.get(2).getCardValue() > war2.get(2).getCardValue()){
+                    Deck war1Card=war1.get(2);
+                    Deck war2Card=war2.get(2);
+                    
+                    if(compareCards(war1Card,war2Card)==1)
+                    {
                         deck1.addAll(war1); //player1 get all 10 cards
                         deck1.addAll(war2);
                         System.out.println(pname1+" wins the war round");
                     }//end if
                     //otherwise player 2 wins the war round
-                    else{
+                    else if(compareCards(war1Card,war2Card)==-1){
                         deck2.addAll(war1); //player2 get all 10 cards
                         deck2.addAll(war2);
                         System.out.println(pname2+" wins the war round");
