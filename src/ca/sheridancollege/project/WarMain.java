@@ -17,7 +17,7 @@ public class WarMain {
         WarGame wg=new WarGame("WarGame");
         Scanner k=new Scanner(System.in);
         wg.dealCards();
-        int rounds=0;
+        int rounds;
          while(true)
         {
             System.out.println("Press Y to continue or N to exit");
