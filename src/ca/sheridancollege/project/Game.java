@@ -6,6 +6,7 @@
 package ca.sheridancollege.project;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * The class that models your game. You should create a more specific
@@ -36,6 +37,15 @@ public abstract class Game
      */
     public ArrayList <Player> getPlayers() 
     {
+        Scanner k=new Scanner(System.in);
+        System.out.println("Enter player 1 ID");
+        String pname1=k.nextLine();
+        System.out.println("Enter player 2 ID");
+        String pname2=k.nextLine();
+        Player one=new Players(pname1);
+        Player two=new Players(pname2);
+        players.add(one);
+        players.add(two);
         return players;
     }
 

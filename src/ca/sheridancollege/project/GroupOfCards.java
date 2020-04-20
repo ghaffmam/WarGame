@@ -7,6 +7,7 @@ package ca.sheridancollege.project;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 
 /**
  * A concrete class that represents any grouping of cards for a Game.
@@ -18,28 +19,36 @@ public class GroupOfCards
 {
    
     //The group of cards, stored in an ArrayList
-    private ArrayList <Card> cards;
+    private Deck cards[];
     private int size;//the size of the grouping
     
     public GroupOfCards(int givenSize)
     {
         size = givenSize;
+        cards=new Deck[size];
     }
     
     /**
      * A method that will get the group of cards as an ArrayList
      * @return the group of cards.
      */
-    public ArrayList<Card> showCards()
+    public ArrayList<Deck> addCards()
     {
-        return cards;
+        ArrayList<Deck> cardList=new ArrayList<>();
+        for(Deck sub: cards)
+        {
+            cardList.add(sub);
+        }
+        return cardList;
     }
     
-    public void shuffle()
+    public void showCards(LinkedList<Deck> deck)
     {
-        Collections.shuffle(cards);
+      for(Deck sub: deck)
+      {
+          System.out.println(sub.toString());
+      }
     }
-
     /**
      * @return the size of the group of cards
      */
@@ -54,4 +63,19 @@ public class GroupOfCards
         size = givenSize;
     }
     
+    public void generateCards()
+    {
+        int countCards=0;
+        for(Deck.Suit s: Deck.Suit.values())
+                {
+                    for(Deck.Value v: Deck.Value.values())
+                    {
+                        //Creating objects using constructor and 
+                        //assigning values of emun fields 
+                        //from list of possible discrete values
+                       cards[countCards]=new Deck(s,v);
+                       countCards++;
+                    }
+                }
+    }
 }//end class
