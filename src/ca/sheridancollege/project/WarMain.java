@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class WarMain {
     public static void main(String args[])
     {
-        WarGame wg=new WarGame("WarGame");
+        WarGame wg= WarGame.getInstance("WarGame"); // since only one instance of WarGame is needed
         Scanner k=new Scanner(System.in);
         wg.dealCards();
         int rounds;

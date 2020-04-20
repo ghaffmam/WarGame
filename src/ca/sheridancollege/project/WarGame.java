@@ -12,11 +12,21 @@ public class WarGame extends Game {
 	 * 
 	 * @param givenName
 	 */
-	public WarGame(String givenName)
+    //implementing Singleton pattern since only one instance of WarGame is needed
+    private static WarGame onlyObject=null;
+	private WarGame(String givenName)
     {
         super(givenName);
     }
 
+        public static WarGame getInstance(String givenName)
+        {
+            if(onlyObject==null)
+            {
+                onlyObject=new WarGame(givenName);
+            }
+            return onlyObject;
+        }
         LinkedList<Deck> deck1=new LinkedList<>();
         LinkedList<Deck> deck2=new LinkedList<>();
         ArrayList<Player> players = getPlayers();

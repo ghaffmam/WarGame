@@ -81,7 +81,7 @@ public class WarGameTest {
         System.out.println("compareCardsGood");
         Deck one = new Deck(HEARTS,KING);
         Deck two = new Deck(SPADES,QUEEN);
-        WarGame instance = new WarGame("WarGame");
+        WarGame instance = WarGame.getInstance("WarGame");
         int expResult = 1;
         int result = instance.compareCards(one, two);
         assertEquals(expResult, result);
@@ -94,7 +94,7 @@ public class WarGameTest {
         System.out.println("compareCardsBad");
         Deck one = new Deck(HEARTS,QUEEN);
         Deck two = new Deck(SPADES,KING);
-        WarGame instance = new WarGame("WarGame");
+        WarGame instance = WarGame.getInstance("WarGame");
         int expResult = -1;
         int result = instance.compareCards(one, two);
         assertEquals(expResult, result);
@@ -107,7 +107,7 @@ public class WarGameTest {
         System.out.println("compareCardsBoundary");
         Deck one = new Deck(HEARTS,KING);
         Deck two = new Deck(SPADES,KING);
-        WarGame instance = new WarGame("WarGame");
+        WarGame instance = WarGame.getInstance("WarGame");
         int expResult = 0;
         int result = instance.compareCards(one, two);
         assertEquals(expResult, result);
